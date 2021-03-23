@@ -55,7 +55,7 @@ cd /danaxa-challenge/
 python3 tester.py
 ```
 
-###Start/Stop the intermediary service
+### Start/Stop the intermediary service
 __Start__
 ```bash
 curl -X POST http://127.0.0.1:5000/api/start
