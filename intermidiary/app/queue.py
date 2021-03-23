@@ -27,11 +27,6 @@ def call_service():
         Environment.service_status == 'stopped'
 
 
-def idle_service():
-    if Environment.service_status == 'running':
-        Environment.service_status = 'idle'
-
-
 def get_insertion_index(uid):
     uids = set([rec[0] for rec in prioritized_q])
     if uid not in uids:
