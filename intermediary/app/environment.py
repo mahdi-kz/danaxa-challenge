@@ -9,6 +9,8 @@ service_status = {'running': 'running', 'idle': 'idle', 'to stop': 'to stop', 's
 
 class Environment:
     service_status = service_status['stopped']
+    limited_f_url = 'http://127.0.0.1:5001/limited/call'         # If the services run manually
+    # limited_f_url = 'http://limited_f:5001/limited/call'    # If the services run dockerized
 
 
 class Config:

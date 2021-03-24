@@ -1,7 +1,7 @@
 import requests, random
 
-max_request = 1000
-user_count = 20
+max_request = 100
+user_count = 5
 
 for v in range(max_request):
     uid = random.randint(0, user_count)

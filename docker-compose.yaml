@@ -1,0 +1,34 @@
+version: "3"
+services:
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+
+  limited_f:
+    restart: always
+    build: ./limited_f/
+    working_dir: /limited_f
+    ports:
+      - 5001:5001
+    volumes:
+      - ./limited_f:/limited_f
+    depends_on:
+      - "nginx"
+    command: flask run -h '0.0.0.0'
+
+  intermediary:
+    restart: always
+    build: ./intermediary/
+    working_dir: /intermediary
+    ports:
+      - 5000:5000
+    volumes:
+      - ./intermediary:/intermediary
+    depends_on:
+      - "nginx"
+    command: flask run -h '0.0.0.0'

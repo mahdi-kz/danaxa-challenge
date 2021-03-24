@@ -9,6 +9,10 @@ def call():
     if request.is_json:
         data = request.json
         time.sleep(2)
-        print("Request --> uid = " + str(data['user_id']) + " , X = " + str(data['x']))
-        return jsonify(status=200, message="PROCESSED", data={}), 200
+        message = "Request --> uid = " + str(data['user_id']) + " , X = " + str(data['x'])
+        # f = open('log.txt', 'a')
+        # f.write(message + '\n')
+        # f.close()
+        print(message)
+        return jsonify(status=200, message=message + "PROCESSED", data={}), 200
     return jsonify(status=500, message="request is wrong.", ), 500
